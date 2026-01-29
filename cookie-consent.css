@@ -1,0 +1,231 @@
+/* Cookie同意弹窗样式 - GitHub 风格 */
+.cookie-consent-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+}
+
+.cookie-consent-modal.show {
+    display: flex;
+}
+
+.cookie-consent-content {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 560px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.cookie-consent-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cookie-consent-header h3 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.cookie-consent-body {
+    padding: 20px 24px;
+}
+
+.consent-message {
+    margin: 0 0 20px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.clarity-explanation {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-size: 0.875rem;
+}
+
+.clarity-explanation p {
+    margin: 0 0 12px 0;
+    color: var(--text-muted);
+}
+
+.clarity-explanation p:last-child {
+    margin-bottom: 0;
+}
+
+.clarity-explanation ul {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+    color: var(--text-muted);
+}
+
+.clarity-explanation li {
+    margin: 6px 0;
+}
+
+.consent-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.consent-option {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.consent-option:hover {
+    border-color: var(--primary-color);
+    background: var(--hover-bg);
+}
+
+.consent-option input[type="radio"] {
+    margin-right: 12px;
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-color);
+}
+
+.consent-option label {
+    flex: 1;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 0.875rem;
+}
+
+.consent-option label strong {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.option-description {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+.cookie-consent-footer {
+    padding: 16px 24px 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.consent-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.consent-save {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.consent-save:hover:not(:disabled) {
+    background: var(--hover-bg);
+    border-color: var(--primary-color);
+}
+
+.consent-save:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.consent-accept-all {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.consent-accept-all:hover {
+    background: #2ea043;
+    border-color: #2ea043;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .cookie-consent-content {
+        width: 95%;
+        margin: 16px;
+    }
+    
+    .cookie-consent-header,
+    .cookie-consent-body {
+        padding: 16px;
+    }
+    
+    .cookie-consent-footer {
+        padding: 16px;
+        flex-direction: column-reverse;
+    }
+    
+    .consent-btn {
+        width: 100%;
+    }
+    
+    .consent-options {
+        gap: 10px;
+    }
+    
+    .consent-option {
+        padding: 12px;
+    }
+}
+
+/* 动画效果 */
+.cookie-consent-modal {
+    animation: fadeIn 0.2s ease;
+}
+
+.cookie-consent-content {
+    animation: slideUp 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
